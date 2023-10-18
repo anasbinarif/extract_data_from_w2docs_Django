@@ -28,6 +28,7 @@ DEBUG = False
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'https://extract-data-w2-next-fe.vercel.app/',
     # Add other allowed origins if needed
 ]
 CORS_ALLOW_ALL_ORIGINS: True
