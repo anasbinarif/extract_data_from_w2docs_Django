@@ -46,7 +46,6 @@ def register_user(request):
 @api_view(['POST'])
 def user_login(request):
     logger.info('Received a request for user login.')
-    print(os.environ['AZURE_KEY'])
     if request.method == 'POST':
         try:
             username = request.data.get('username')
@@ -113,9 +112,9 @@ def file_upload_view(request):
                 image_filename = pdf_file.name.replace('.pdf', '') + '.png'
                 image_path = os.path.join('media', image_filename)
                 images[0].save(image_path, 'PNG')
-                print('File uploaded and converted to an image successfully.')
+                logger.info('File uploaded and converted to an image successfully.')
             else:
-                print('Failed to convert PDF to image.')
+                logger.info('Failed to convert PDF to image.')
             tax_details = extract_data_from_W2doc(image_path)
             try:
                 store_data_in_db(tax_details, user_id)

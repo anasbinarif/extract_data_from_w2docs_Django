@@ -25,13 +25,15 @@ SECRET_KEY = os.environ['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     # Add other allowed origins if needed
 ]
 CORS_ALLOW_ALL_ORIGINS: True
+
+ALLOWED_HOSTS = ['*']
+
 
 CORS_ALLOW_HEADERS = [
     'accept',
@@ -108,8 +110,6 @@ WSGI_APPLICATION = 'taxgpt_test1.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ['DATABASES_NAME'],
         'USER': os.environ['DATABASES_USER'],
